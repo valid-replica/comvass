@@ -1,0 +1,43 @@
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.part-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.other-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 320px;
+  border: 0.25rem solid;
+}
+
+.part-header {
+  display: flex;
+}
+
+.part-action {
+  margin-left: auto;
+}
