@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>Comvass</title>
@@ -10,118 +18,63 @@
   <body>
     <div class="wrapper">
       <header>
-        <div class="title">
-          <h1>Comvass</h1>
-        </div>
-
-        <section>
-          <button>Share as image</button>
-        </section>
+        <h1>Comvass</h1>
+        <button>Share as image</button>
       </header>
       <main>
-        <div class="main-wrapper">
-          <section>
-            <input type="text" placeholder="My Computer" />
-          </section>
-          <div class="part-list">
-            <div class="cpu part">
-              <div class="part-header">
-                <h2>CPU</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="motherboard part">
-              <div class="part-header">
-                <h2>Motherboard</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="memory part">
-              <div class="part-header">
-                <h2>Memory</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="storage part">
-              <div class="part-header">
-                <h2>Storage</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="video-card part">
-              <div class="part-header">
-                <h2>Video Card</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="case part">
-              <div class="part-header">
-                <h2>Case</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="power-supply part">
-              <div class="part-header">
-                <h2>Power Supply</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
+        <div class="computer-list">
+          <div class="cpu part">
+            <div class="add-card">
+              <p>+ Add A CPU</p>
             </div>
           </div>
-          <section><h2>Other parts</h2></section>
-
-          <div class="other-list">
-            <div class="part">
-              <div class="part-header">
-                <h2>Monitor</h2>
-                <button class="part-action">X</button>
-              </div>
-              <div class="part-details">
-                <p>Name</p>
-                <p>Price</p>
-                <p>Where</p>
-              </div>
-            </div>
-            <div class="part">
-              <button>Add</button>
+          <div class="motherboard part">
+            <div class="add-card">
+              <p>+ Add A Motherboard</p>
             </div>
           </div>
-        </div>
+          <div class="memory part">
+            <div class="add-card">
+              <p>+ Add Memory</p>
+            </div>
+          </div>
+          <div class="storage part">
+            <div class="add-card">
+              <p>+ Add Storage</p>
+            </div>
+          </div>
+          <div class="gpu part">
+            <div class="add-card">
+              <p>+ Add A GPU</p>
+            </div>
+          </div>
+          <div class="case part">
+            <div class="add-card">
+              <p>+ Add A Case</p>
+            </div>
+          </div>
+          <div class="power-supply part">
+            <div class="add-card">
+              <p>+ Add A Power Supply</p>
+            </div>
+          </div>
+          <div class="total part">
+            <div class="add-card">
+              <p> Total</p>
+            </div>
+          </div>
       </main>
+      <footer>
+        <p>Built and designed by&nbsp;Ervic Padilla</p>
+        <ul class="social">
+          <li>
+              <a href="https://github.com/valid-replica" target="_blank"><img src="/icons/github.svg" height="42px" width="42px" c></img></a>
+          </li>
+          <li>
+              <a href="https://www.linkedin.com/in/ervicpadilla" target="_blank"><img src="/icons/linkedin.svg" height="42px" width="42px"></img></a>
+          </li>
+      </ul>
+      </footer>
     </div>
   </body>
 </html>
