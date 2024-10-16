@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comvass</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +14,8 @@
 
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Comvass</title>
+
+    <script src="js/script.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -22,44 +24,60 @@
         <button>Share as image</button>
       </header>
       <main>
+        <dialog id="dataModal">
+          <form action="">
+            <p>
+              <label>
+                Part name:
+              </label>
+              <input type="text" class="modal-name">
+            </p>
+            <p>
+              <label>
+                Price:
+              </label>
+              <input type="text" class="modal-price">
+            </p>
+            <div>
+              <button id="confirmBtn">Submit</button>
+              <button id="cancelBtn">Cancel</button>
+            </div>
+              
+          </form>
+        </dialog>
+
         <div class="computer-list">
           <div class="cpu part">
-            <div class="v-card">
+            <!-- <div class="v-card">
               <img class="cpu-img" src="images/cpu.png" alt="An image of a CPU">
               <div class="card-info">
                 <p class="part-title">Ryzen 7 7800X3D</p>
                 <p class="part-price">₱ 6, 500</p>
                 <p class="part-tag">CPU</p>
               </div>
-            </div>
-            <!-- <div class="add-card">
-              <p>+ Add A CPU</p>
             </div> -->
+            <div class="add-card show-modal">+ Add A CPU</div>
           </div>
           <div class="motherboard part">
-            <div class="h-card">
+            <!-- <div class="h-card">
               <div class="card-info">
                 <p class="part-title">Asus ROG CROSSHAIR X870E HERO</p>
                 <p class="part-price">₱ 35, 500</p>
                 <p class="part-tag">Motherboard</p>
               </div>
               <img class="motherboard-img" src="images/motherboard.png" alt="An image of a motherboard">
-            </div>
-            <!-- <div class="add-card">
-              <p>+ Add A Motherboard</p>
             </div> -->
+            <div class="add-card show-modal">+ Add A Motherboard</div>
           </div>
           <div class="memory part">
-            <div class="card">
+            <!-- <div class="card">
               <div class="card-info">
                 <p class="part-title">TEAMGROUP T-Force Delta RGB 32 GB</p>
                 <p class="part-price">₱ 5, 000</p>
                 <p class="part-tag">Memory</p>
               </div>
-            </div>
-            <!-- <div class="add-card">
-              <p>+ Add Memory</p>
             </div> -->
+            <div class="add-card show-modal">+ Add Memory</div>
           </div>
           <div class="storage part">
             <div class="v-card">
@@ -117,7 +135,7 @@
               <h2>My Computer</h2>
               <div class="total-info">
                 <p>Total&nbsp;</p>
-                <p>108500</p>
+                <p class="total-price">108500</p>
               </div>
             </div>
           </div>
@@ -126,8 +144,12 @@
         <p>Built and designed by&nbsp;Ervic Padilla</p>
         <ul class="social">
           <li>
+            <button id="clearBtn">Clear All</button>
+          </li>
+          <li>
               <a href="https://github.com/valid-replica" target="_blank"><img src="/icons/github.svg" height="42px" width="42px"></img></a>
           </li>
+
           <li>
               <a href="https://www.linkedin.com/in/ervicpadilla" target="_blank"><img src="/icons/linkedin.svg" height="42px" width="42px"></img></a>
           </li>
