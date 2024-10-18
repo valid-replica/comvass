@@ -1,9 +1,15 @@
-const dialog = document.querySelector("#dataModal");
+const captureArea = document.querySelector("main");
+const shareDialog = document.querySelector("#shareModal");
+const downloadButton = shareDialog.querySelector("#downloadBtn");
+const copyButton = shareDialog.querySelector("#copyBtn");
+const shareCancelButton = shareDialog.querySelector("#shareCancelBtn");
+const partDialog = document.querySelector("#dataModal");
 const partForm = document.querySelector("#addForm");
 const cards = document.querySelectorAll(".show-modal");
-const cancelButton = dialog.querySelector("#cancelBtn");
-const confirmButton = dialog.querySelector("#confirmBtn");
+const cancelButton = partDialog.querySelector("#cancelBtn");
+const confirmButton = partDialog.querySelector("#confirmBtn");
 const clearButton = document.querySelector("#clearBtn");
+const shareButton = document.querySelector("#shareBtn");
 const totalPrice = document.querySelector(".total-price");
 const modalName = document.querySelector(".modal-name");
 const modalPrice = document.querySelector(".modal-price");
@@ -11,6 +17,7 @@ const info = document.querySelector(".info-card");
 
 let whichPart;
 let total = 0;
+let dataUrl;
 
 const updateTotal = (price, oldPrice = 0) => {
   total += price;
@@ -301,22 +308,64 @@ const printCard = (partName, partPrice, card) => {
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
-    dialog.showModal();
+    partDialog.showModal();
     whichPart = card;
   });
+});
+
+shareButton.addEventListener("click", () => {
+  html2canvas(captureArea).then((canvas) => {
+    dataUrl = canvas.toDataURL("image/png");
+
+    let screenshotPreview = document.querySelector("#screenshotPreview");
+    screenshotPreview.src = dataUrl;
+  });
+
+  shareDialog.showModal();
+});
+
+downloadButton.addEventListener("click", () => {
+  const link = document.createElement("a");
+  link.href = dataUrl;
+  link.download = "comvass.png";
+  link.click();
+  shareDialog.close();
+});
+
+copyButton.addEventListener("click", () => {
+  html2canvas(captureArea).then((canvas) => {
+    canvas.toBlob(function (blob) {
+      const screenshot = new ClipboardItem({ "image/png": blob });
+
+      navigator.clipboard
+        .write([screenshot])
+        .then(function () {
+          alert("Screenshot copied to clipboard!");
+        })
+        .catch(function (error) {
+          console.error("Error copying to clipboard: ", error);
+        });
+    });
+  });
+
+  shareDialog.close();
+});
+
+shareCancelButton.addEventListener("click", () => {
+  shareDialog.close();
 });
 
 partForm.addEventListener("submit", (event) => {
   event.preventDefault();
   printCard(modalName.value, parseInt(modalPrice.value), whichPart);
   partForm.reset();
-  dialog.close();
+  partDialog.close();
   console.log("Form submitted");
 });
 
 cancelButton.addEventListener("click", (event) => {
   event.preventDefault();
-  dialog.close();
+  partDialog.close();
 });
 
 clearButton.addEventListener("click", (event) => {

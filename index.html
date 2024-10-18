@@ -12,113 +12,77 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 
-    <script src="js/script.js" defer></script>
+    <script src="./js/script.js" defer></script>
+    <script src="./js/html2canvas.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
       <header>
         <h1>Comvass</h1>
-        <button>Share as image</button>
+        <div class="header-buttons">
+          <button id="clearBtn">Clear All</button>
+          <button id="shareBtn">Share as image</button>  
+        </div>
+ 
       </header>
-      <main>
-        <dialog id="dataModal">
-          <form id="addForm">
-            <p>Add Part</p>
-            <div class="form-input">
-                <input type="text" class="modal-name" placeholder="Part Name" required>
-                <input type="number" class="modal-price" placeholder="Price" required>
-            </div>
-            <div class="form-buttons">
-              <button type="submit" id="confirmBtn">Submit</button>
-              <button id="cancelBtn">Cancel</button>
-            </div>
-              
-          </form>
-        </dialog>
+      <dialog id="shareModal">
+        <div class="share-display">
+          <img id="screenshotPreview" src="" alt="Preview of computer list">
+          <div class="share-buttons">
+            <button id="downloadBtn">Download</button>
+            <button id="copyBtn">Copy</button>
+            <button id="shareCancelBtn">Cancel</button>
+          </div>
 
+        </div>
+      </dialog>
+
+      <dialog id="dataModal">
+        <form id="addForm">
+          <p>Add Part</p>
+          <div class="form-input">
+              <input type="text" class="modal-name" placeholder="Part Name" required>
+              <input type="number" class="modal-price" placeholder="Price" required>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" id="confirmBtn">Submit</button>
+            <button id="cancelBtn">Cancel</button>
+          </div>
+            
+        </form>
+      </dialog>
+
+
+      <main>
         <div class="computer-list">
           <div class="cpu part">
-            <!-- <div class="v-card">
-              <img class="cpu-img" src="images/cpu.png" alt="An image of a CPU">
-              <div class="card-info">
-                <p class="part-title">Ryzen 7 7800X3D</p>
-                <p class="part-price">₱ 24, 500</p>
-                <p class="part-tag">CPU</p>
-              </div>
-            </div> -->
             <div class="add-card show-modal cpu-card">+ Add A CPU</div>
           </div>
           <div class="motherboard part">
-            <!-- <div class="h-card">
-              <div class="card-info">
-                <p class="part-title">Asus ROG CROSSHAIR X870E HERO</p>
-                <p class="part-price">₱ 35, 500</p>
-                <p class="part-tag">Motherboard</p>
-              </div>
-              <img class="motherboard-img" src="images/motherboard.png" alt="An image of a motherboard">
-            </div> -->
             <div class="add-card show-modal motherboard-card">+ Add A Motherboard</div>
           </div>
           <div class="memory part">
-            <!-- <div class="card">
-              <div class="card-info">
-                <p class="part-title">TEAMGROUP T-Force Delta RGB 32 GB</p>
-                <p class="part-price">₱ 5, 000</p>
-                <p class="part-tag">Memory</p>
-              </div>
-            </div> -->
             <div class="add-card show-modal memory-card">+ Add Memory</div>
           </div>
           <div class="storage part">
-            <!-- <div class="v-card">
-              <img class="ssd-img" src="images/ssd.png" alt="An image of an SSD">
-              <div class="card-info">
-                <p class="part-title">Western Digital SN850X 2 TB</p>
-                <p class="part-price">₱ 8, 000</p>
-                <p class="part-tag">Storage</p>
-              </div>
-            </div> -->
             <div class="add-card show-modal storage-card">
               <p>+ Add Storage</p>
             </div>
           </div>
           <div class="gpu part">
-            <!-- <div class="v-card">
-              <div class="card-info">
-                <p class="part-title">XFX Speedster MERC 310 RX 7900 XTX</p>
-                <p class="part-price">₱ 51, 500</p>
-                <p class="part-tag">GPU</p>
-              </div>
-              <img class="gpu-img" src="images/gpu.png" alt="An image of a GPU">
-            </div> -->
             <div class="add-card show-modal gpu-card">
               <p>+ Add A GPU</p>
             </div>
           </div>
           <div class="case part">
-            <!-- <div class="card">
-              <div class="card-info">
-                <p class="part-title">Lian Li O11 Dynamic Mini Snow Edition</p>
-                <p class="part-price">₱ 4, 500</p>
-                <p class="part-tag">Case</p>
-              </div>
-            </div> -->
             <div class="add-card show-modal case-card">
               <p>+ Add A Case</p>
             </div>
           </div>
           <div class="power-supply part">
-            <!-- <div class="h-card">
-              <div class="card-info">
-                <p class="part-title">Cooler Master V SFX 750 W 80+ Gold</p>
-                <p class="part-price">₱ 5, 500</p>
-                <p class="part-tag">Power Supply</p>
-              </div>
-              <img class="psu-img" src="images/psu.png" alt="An image of a power supply">
-            </div> -->
             <div class="add-card show-modal power-supply-card">
               <p>+ Add A Power Supply</p>
             </div>
@@ -126,7 +90,7 @@
           <div class="total part">
             <div class="total-card">
               <div class="style-card">
-                <img class="style-gradient" src="images/style-gradient.svg" alt="A wavy gradient">
+                <img class="style-gradient" src="./images/style-gradient.svg" alt="A wavy gradient">
               </div>
               <div class="info-card">
                 <h2 class="computer-name">My Computer</h2>
@@ -141,14 +105,11 @@
         <p>Built and designed by&nbsp;Ervic Padilla</p>
         <ul class="social">
           <li>
-            <button id="clearBtn">Clear All</button>
-          </li>
-          <li>
-              <a href="https://github.com/valid-replica" target="_blank"><img src="/icons/github.svg" height="42px" width="42px" style="filter: invert(100%);"></img></a>
+              <a href="https://github.com/valid-replica" target="_blank"><img src="./icons/github.svg" height="42px" width="42px" style="filter: invert(100%);"></img></a>
           </li>
 
           <li>
-              <a href="https://www.linkedin.com/in/ervicpadilla" target="_blank"><img src="/icons/linkedin.svg" height="42px" width="42px"></img></a>
+              <a href="https://www.linkedin.com/in/ervicpadilla" target="_blank"><img src="./icons/linkedin.svg" height="42px" width="42px"></img></a>
           </li>
       </ul>
       </footer>
